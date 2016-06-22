@@ -1,0 +1,4 @@
+rootProject.name = "myGWTGradle"
+include 'my-sample-app'
+include 'library'
+include 'super-dev-mode'

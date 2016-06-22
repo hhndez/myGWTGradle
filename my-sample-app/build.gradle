@@ -1,0 +1,23 @@
+version '0.0.0-SNAPSHOT'
+
+apply plugin: 'groovy'
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'gwt'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(':library')
+}
+
+
+gwt {
+    gwtVersion = '2.7.0'
+    modules 'sample.myModule'
+    src += files(project(':library').sourceSets.main.allJava.srcDirs) + files(project(':library').sourceSets.main.output.resourcesDir)
+}

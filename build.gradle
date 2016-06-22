@@ -1,0 +1,35 @@
+buildscript {
+    repositories {
+        jcenter()
+        /*
+        maven {
+            url 'http://10.100.144.58:8081/artifactory/repo'
+        }*/
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    buildscript {
+        repositories {
+            jcenter()
+//            maven {
+                //url new File(rootProject.projectDir.parentFile, 'repo').toURI()
+//                url 'http://10.100.144.58:8081/artifactory/repo'
+//            }
+            mavenCentral()
+        }
+        dependencies {
+            classpath 'de.richsource.gradle.plugins:gwt-gradle-plugin:0.6'
+        }
+    }
+
+    repositories {
+        jcenter()
+        maven {
+            url 'http://10.100.144.58:8081/artifactory/repo'
+        }
+    }
+}
+
